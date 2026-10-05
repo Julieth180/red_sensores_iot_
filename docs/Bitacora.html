@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitácora Semana 4 - Isabella Garay Santana</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            color: #222;
+            background-color: #f7f7f7;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1f4e79;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #1f4e79;
+            border-bottom: 2px solid #1f4e79;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #bbb;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #eaf1f8;
+        }
+
+        .datos {
+            background-color: #f3f6f9;
+            padding: 20px;
+            border-left: 5px solid #1f4e79;
+        }
+
+        .resultado {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .grafica {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .grafica svg {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            background: white;
+        }
+
+        .nota {
+            background-color: #fff8dc;
+            border-left: 5px solid #d6a700;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        pre {
+            background-color: #f1f1f1;
+            padding: 15px;
+            overflow-x: auto;
+            border-radius: 5px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .check {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .check li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<main>
+
+    <h1>Bitácora de Laboratorio</h1>
+
+    <div class="datos">
+        <strong>Semana 4 - Algoritmos de ordenamiento y búsqueda</strong><br><br>
+
+        <strong>Estudiante:</strong> Isabella Garay Santana<br>
+        <strong>Equipo:</strong> [Número o nombre del equipo]<br>
+        <strong>Semana:</strong> 4<br>
+        <strong>Fecha laboratorio:</strong> 04/10/2026<br>
+        <strong>Fecha taller:</strong> 04/10/2026<br>
+        <strong>Tema principal:</strong> Algoritmos de ordenamiento, búsqueda y análisis de eficiencia.
+    </div>
+
+
+    <!-- ===================================================== -->
+    <!-- 1. DATOS DE LA ACTIVIDAD -->
+    <!-- ===================================================== -->
+
+    <h2>1. Datos de la actividad</h2>
+
+    <p>
+        Durante esta semana se trabajó con diferentes algoritmos de ordenamiento
+        y búsqueda aplicados a las lecturas obtenidas de los sensores.
+        El objetivo fue analizar cómo cambia el rendimiento de los algoritmos
+        cuando aumenta la cantidad de datos.
+    </p>
+
+    <p>
+        <strong>Pregunta de la semana:</strong>
+        ¿Cómo influye el algoritmo de ordenamiento elegido en el rendimiento
+        del programa cuando aumenta la cantidad de datos?
+    </p>
+
+
+    <!-- ===================================================== -->
+    <!-- 2. PREDICCIÓN -->
+    <!-- ===================================================== -->
+
+    <h2>2. Predicción antes de ejecutar</h2>
+
+    <h3>1. ¿Qué creo que va a ocurrir?</h3>
+
+    <p>
+        Creo que los algoritmos de ordenamiento no tendrán el mismo rendimiento
+        cuando aumente la cantidad de lecturas. Espero que Inserción funcione
+        bien con pocos datos, pero que necesite muchas más comparaciones cuando
+        la cantidad de datos sea grande. También espero que algoritmos como
+        MergeSort y HeapSort sean más eficientes para grandes cantidades de
+        información.
+    </p>
+
+    <h3>2. ¿Qué parte del programa/algoritmo puede fallar?</h3>
+
+    <p>
+        Una posible dificultad puede aparecer cuando se trabaja con una cantidad
+        muy grande de datos, especialmente con Inserción, porque puede necesitar
+        muchas comparaciones e intercambios. También pueden presentarse errores
+        en los contadores de comparaciones o intercambios, o problemas al
+        ordenar los datos antes de realizar una búsqueda.
+    </p>
+
+    <h3>3. ¿Cómo comprobaré mi predicción?</h3>
+
+    <p>
+        Voy a ejecutar los experimentos con diferentes cantidades de lecturas
+        y compararé el número de comparaciones, intercambios y el tiempo de
+        ejecución. Principalmente compararé Inserción con MergeSort utilizando
+        1.000, 10.000 y 100.000 lecturas.
+    </p>
+
+
+    <!-- ===================================================== -->
+    <!-- 3. EVIDENCIA -->
+    <!-- ===================================================== -->
+
+    <h2>3. Evidencia del laboratorio</h2>
+
+    <h3>Resultado observado</h3>
+
+    <p>
+        Al ejecutar los experimentos se obtuvieron los siguientes resultados:
+    </p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Cantidad de lecturas</th>
+            <th>Inserción</th>
+            <th>MergeSort</th>
+            <th>HeapSort</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>1.000</td>
+            <td>242.787</td>
+            <td>8.684</td>
+            <td>16.786</td>
+        </tr>
+
+        <tr>
+            <td>10.000</td>
+            <td>24.938.233</td>
+            <td>120.396</td>
+            <td>235.434</td>
+        </tr>
+
+        <tr>
+            <td>100.000</td>
+            <td>2.497.222.762</td>
+            <td>1.536.325</td>
+            <td>3.019.556</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Tiempo de ejecución</h3>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Cantidad de lecturas</th>
+            <th>Inserción</th>
+            <th>MergeSort</th>
+            <th>HeapSort</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>1.000</td>
+            <td>4 ms</td>
+            <td>1 ms</td>
+            <td>1 ms</td>
+        </tr>
+
+        <tr>
+            <td>10.000</td>
+            <td>275 ms</td>
+            <td>5 ms</td>
+            <td>4 ms</td>
+        </tr>
+
+        <tr>
+            <td>100.000</td>
+            <td>91.637 ms</td>
+            <td>149 ms</td>
+            <td>212 ms</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!-- ===================================================== -->
+    <!-- GRÁFICA -->
+    <!-- ===================================================== -->
+
+    <h3>Gráfica de comparación</h3>
+
+    <p>
+        La siguiente gráfica muestra el crecimiento del número de comparaciones
+        realizadas por Inserción y MergeSort al aumentar la cantidad de lecturas.
+    </p>
+
+    <div class="grafica">
+
+        <svg viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg">
+
+            <!-- Fondo -->
+            <rect x="0" y="0" width="900" height="520" fill="white"/>
+
+            <!-- Título -->
+            <text x="450" y="35"
+                  text-anchor="middle"
+                  font-size="22"
+                  font-weight="bold">
+                Comparación del crecimiento del número de comparaciones
+            </text>
+
+            <!-- Ejes -->
+            <line x1="100" y1="430" x2="830" y2="430"
+                  stroke="black" stroke-width="2"/>
+
+            <line x1="100" y1="70" x2="100" y2="430"
+                  stroke="black" stroke-width="2"/>
+
+            <!-- Etiqueta eje X -->
+            <text x="465" y="490"
+                  text-anchor="middle"
+                  font-size="17">
+                Cantidad de lecturas (n)
+            </text>
+
+            <!-- Etiqueta eje Y -->
+            <text x="25" y="250"
+                  text-anchor="middle"
+                  font-size="17"
+                  transform="rotate(-90 25 250)">
+                Número de comparaciones
+            </text>
+
+            <!-- Líneas de referencia -->
+            <line x1="100" y1="350" x2="830" y2="350"
+                  stroke="#ddd"/>
+
+            <line x1="100" y1="270" x2="830" y2="270"
+                  stroke="#ddd"/>
+
+            <line x1="100" y1="190" x2="830" y2="190"
+                  stroke="#ddd"/>
+
+            <line x1="100" y1="110" x2="830" y2="110"
+                  stroke="#ddd"/>
+
+
+            <!-- Puntos Inserción -->
+            <!-- 1000 -->
+            <circle cx="180" cy="340" r="7" fill="#1f77b4"/>
+
+            <!-- 10000 -->
+            <circle cx="470" cy="235" r="7" fill="#1f77b4"/>
+
+            <!-- 100000 -->
+            <circle cx="760" cy="85" r="7" fill="#1f77b4"/>
+
+
+            <!-- Línea Inserción -->
+            <polyline
+                    points="180,340 470,235 760,85"
+                    fill="none"
+                    stroke="#1f77b4"
+                    stroke-width="4"/>
+
+
+            <!-- Puntos MergeSort -->
+            <!-- 1000 -->
+            <circle cx="180" cy="395" r="7" fill="#ff7f0e"/>
+
+            <!-- 10000 -->
+            <circle cx="470" cy="320" r="7" fill="#ff7f0e"/>
+
+            <!-- 100000 -->
+            <circle cx="760" cy="235" r="7" fill="#ff7f0e"/>
+
+
+            <!-- Línea MergeSort -->
+            <polyline
+                    points="180,395 470,320 760,235"
+                    fill="none"
+                    stroke="#ff7f0e"
+                    stroke-width="4"/>
+
+
+            <!-- Valores eje X -->
+            <text x="180" y="455"
+                  text-anchor="middle">
+                1.000
+            </text>
+
+            <text x="470" y="455"
+                  text-anchor="middle">
+                10.000
+            </text>
+
+            <text x="760" y="455"
+                  text-anchor="middle">
+                100.000
+            </text>
+
+
+            <!-- Leyenda -->
+            <line x1="580" y1="55"
+                  x2="610" y2="55"
+                  stroke="#1f77b4"
+                  stroke-width="4"/>
+
+            <text x="620" y="60">
+                Inserción
+            </text>
+
+            <line x1="700" y1="55"
+                  x2="730" y2="55"
+                  stroke="#ff7f0e"
+                  stroke-width="4"/>
+
+            <text x="740" y="60">
+                MergeSort
+            </text>
+
+        </svg>
+
+    </div>
+
+    <h3>Análisis de la gráfica</h3>
+
+    <p>
+        En la gráfica se observa que Inserción presenta un crecimiento mucho
+        mayor en el número de comparaciones a medida que aumenta la cantidad
+        de lecturas. En cambio, MergeSort presenta un crecimiento mucho menor.
+    </p>
+
+    <p>
+        La diferencia se hace especialmente evidente con 100.000 lecturas.
+        Inserción realizó 2.497.222.762 comparaciones, mientras que MergeSort
+        realizó solamente 1.536.325 comparaciones.
+    </p>
+
+    <p>
+        Esto demuestra que MergeSort es más eficiente para trabajar con grandes
+        cantidades de datos. Inserción presenta un comportamiento aproximado
+        de O(n²), mientras que MergeSort presenta un comportamiento aproximado
+        de O(n log n).
+    </p>
+
+
+    <h3>Otros resultados observados</h3>
+
+    <p>
+        En el experimento de QuickSort con 50.000 lecturas se obtuvieron
+        894.286 comparaciones para los datos desordenados y 980.997
+        comparaciones para los datos en orden cronológico.
+    </p>
+
+    <p>
+        En el experimento de búsqueda binaria se encontró una lectura en la
+        posición 73.412 utilizando únicamente 16 comparaciones.
+    </p>
+
+
+    <h3>Diferencia entre predicción y resultado</h3>
+
+    <p>
+        El resultado coincidió con mi predicción. Inserción tuvo un aumento
+        muy grande en el número de comparaciones a medida que aumentó la
+        cantidad de datos. En cambio, MergeSort aumentó mucho menos.
+    </p>
+
+
+    <h3>Error o comportamiento inesperado</h3>
+
+    <p><strong>¿Qué ocurrió?</strong></p>
+
+    <p>
+        Lo que más llamó la atención fue que Inserción tardó 91.637 ms,
+        aproximadamente 91,6 segundos, al ordenar 100.000 lecturas.
+    </p>
+
+    <p><strong>¿Por qué ocurrió?</strong></p>
+
+    <p>
+        Esto ocurrió porque Inserción necesita comparar y mover muchos
+        elementos cuando los datos son numerosos. La cantidad de operaciones
+        aumenta rápidamente a medida que crece el tamaño de los datos.
+    </p>
+
+    <p><strong>¿Cómo lo corregimos o qué falta?</strong></p>
+
+    <p>
+        No se trató de un error del programa, sino de un comportamiento
+        esperado del algoritmo. Para grandes cantidades de datos resulta
+        más conveniente utilizar algoritmos como MergeSort, que realizan
+        muchas menos comparaciones y tardan mucho menos tiempo.
+    </p>
+
+
+    <!-- ===================================================== -->
+    <!-- 4. LENGUAJE LLANO -->
+    <!-- ===================================================== -->
+
+    <h2>4. Explicación en lenguaje llano</h2>
+
+    <p>
+        Los algoritmos de ordenamiento sirven para organizar las lecturas de
+        los sensores. No todos los algoritmos trabajan igual de rápido cuando
+        aumenta la cantidad de datos. En las pruebas, Inserción funcionó con
+        pocos datos, pero se volvió mucho más lento con 100.000 lecturas.
+        MergeSort pudo ordenar una cantidad grande de datos realizando muchas
+        menos comparaciones.
+    </p>
+
+    <h3>Ejemplo o analogía</h3>
+
+    <p>
+        Es como organizar una fila de personas por altura. Una forma sería
+        comparar constantemente una persona con muchas de las demás hasta
+        encontrar su posición. Otra forma sería dividir el grupo en grupos
+        pequeños, organizarlos y después unirlos. La segunda estrategia
+        permite organizar una cantidad grande de personas de una manera más
+        eficiente.
+    </p>
+
+
+    <!-- ===================================================== -->
+    <!-- 5. VACÍO -->
+    <!-- ===================================================== -->
+
+    <h2>5. El vacío que encontré</h2>
+
+    <h3>Mi duda concreta</h3>
+
+    <p>
+        ¿Por qué Inserción necesita tantas más comparaciones que MergeSort
+        cuando aumenta la cantidad de datos?
+    </p>
+
+    <h3>Lo que ya puedo explicar</h3>
+
+    <p>
+        Puedo explicar que Inserción funciona bien con cantidades pequeñas
+        de datos, pero que al aumentar el tamaño del arreglo necesita comparar
+        y mover muchos elementos. También puedo reconocer que MergeSort es
+        más eficiente cuando se trabaja con grandes cantidades de datos.
+    </p>
+
+    <h3>Para resolver la duda consulté</h3>
+
+    <p>
+        Para resolver esta duda revisé los resultados de los experimentos
+        realizados en el programa y comparé el número de comparaciones y el
+        tiempo de ejecución de cada algoritmo.
+    </p>
+
+    <h3>Ahora lo entiendo así</h3>
+
+    <p>
+        Ahora entiendo que Inserción tiene un crecimiento aproximado de
+        O(n²), por lo que la cantidad de operaciones aumenta rápidamente
+        cuando aumenta n. MergeSort tiene un crecimiento aproximado de
+        O(n log n), por lo que resulta mucho más eficiente para cantidades
+        grandes de datos.
+    </p>
+
+
+    <!-- ===================================================== -->
+    <!-- 6. TRAZADO -->
+    <!-- ===================================================== -->
+
+    <h2>6. Trazado de la solución</h2>
+
+    <p>
+        Para entender cómo funciona un ordenamiento por Inserción se puede
+        observar el siguiente ejemplo:
+    </p>
+
+    <p><strong>Datos iniciales:</strong></p>
+
+    <pre>[5, 3, 4, 1]</pre>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Paso</th>
+            <th>Estado de los datos</th>
+            <th>Decisión o resultado</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>[5, 3, 4, 1]</td>
+            <td>Se toma el 3 para compararlo con el 5.</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>[5, 5, 4, 1]</td>
+            <td>El 5 se mueve una posición.</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>[3, 5, 4, 1]</td>
+            <td>Se coloca el 3 en su posición.</td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>[3, 5, 5, 1]</td>
+            <td>Se toma el 4 y se mueve el 5.</td>
+        </tr>
+
+        <tr>
+            <td>5</td>
+            <td>[3, 4, 5, 1]</td>
+            <td>Se coloca el 4 en su posición.</td>
+        </tr>
+
+        <tr>
+            <td>6</td>
+            <td>[3, 4, 5, 5]</td>
+            <td>Se toma el 1 y se desplazan los elementos mayores.</td>
+        </tr>
+
+        <tr>
+            <td>7</td>
+            <td>[1, 3, 4, 5]</td>
+            <td>Se obtiene el arreglo ordenado.</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <!-- ===================================================== -->
+    <!-- 7. DECISIÓN -->
+    <!-- ===================================================== -->
+
+    <h2>7. Decisión de diseño</h2>
+
+    <h3>Problema que debíamos resolver</h3>
+
+    <p>
+        El proyecto debe trabajar con lecturas provenientes de sensores
+        ambientales. Como la cantidad de lecturas puede crecer bastante,
+        es necesario utilizar algoritmos que permitan ordenar y consultar
+        los datos de manera eficiente.
+    </p>
+
+    <h3>Estructura, algoritmo o estrategia elegida</h3>
+
+    <p>
+        Se utilizaron diferentes algoritmos de ordenamiento y búsqueda para
+        comparar su rendimiento. Para cantidades grandes de datos, se
+        considera más conveniente utilizar algoritmos como MergeSort.
+    </p>
+
+    <h3>Alternativa descartada</h3>
+
+    <p>
+        Una alternativa que no resulta conveniente para grandes cantidades
+        de datos es utilizar Inserción como algoritmo principal de ordenamiento.
+    </p>
+
+    <h3>¿Por qué elegimos la primera?</h3>
+
+    <p>
+        Los resultados mostraron una diferencia muy grande en el número de
+        comparaciones. Con 100.000 lecturas, Inserción realizó
+        2.497.222.762 comparaciones, mientras que MergeSort realizó
+        1.536.325.
+    </p>
+
+    <p>
+        Además, Inserción tardó aproximadamente 91,6 segundos, mientras que
+        MergeSort tardó solamente 149 ms.
+    </p>
+
+    <h3>¿Qué evidencia respalda la decisión?</h3>
+
+    <p>
+        La evidencia corresponde a los resultados obtenidos directamente al
+        ejecutar los experimentos con 1.000, 10.000 y 100.000 lecturas,
+        comparando el número de comparaciones, intercambios y tiempo de
+        ejecución.
+    </p>
+
+
+    <!-- ===================================================== -->
+    <!-- 8. APORTE -->
+    <!-- ===================================================== -->
+
+    <h2>8. Aporte al proyecto</h2>
+
+    <h3>Archivo(s) o módulo(s) trabajado(s)</h3>
+
+    <ul>
+        <li><code>IngestaSensores.java</code></li>
+        <li><code>BancoDeOrdenamiento.java</code></li>
+        <li><code>docs/bitacora.html</code></li>
+    </ul>
+
+    <div class="nota">
+        Si alguno de estos archivos no fue realmente modificado por mí,
+        debo eliminarlo de esta lista.
+    </div>
+
+    <h3>Cambio realizado</h3>
+
+    <p>
+        Se integró la ejecución de los experimentos de ordenamiento y búsqueda
+        dentro del flujo existente del proyecto, permitiendo comparar
+        diferentes algoritmos utilizando las lecturas de sensores.
+    </p>
+
+    <p>
+        También se realizaron pruebas con diferentes cantidades de datos para
+        analizar el comportamiento de los algoritmos.
+    </p>
+
+    <h3>¿Cómo se conecta con la capa anterior?</h3>
+
+    <p>
+        Los datos utilizados provienen de las lecturas de sensores que son
+        procesadas durante la ingesta. Después de obtener las lecturas válidas,
+        estas pueden ser ordenadas y consultadas para realizar análisis
+        posteriores.
+    </p>
+
+    <h3>¿Qué queda pendiente para la siguiente semana?</h3>
+
+    <p>
+        Queda pendiente continuar con el análisis de los resultados y mejorar
+        la integración de los algoritmos dentro del proyecto. También se debe
+        continuar documentando las decisiones tomadas y los resultados
+        obtenidos.
+    </p>
+
+
+    <!-- ===================================================== -->
+    <!-- 9. COMMITS -->
+    <!-- ===================================================== -->
+
+    <h2>9. Commits realizados</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Commit</th>
+            <th>Mensaje</th>
+            <th>Qué demuestra</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr>
+            <td><code>e91a408</code></td>
+            <td>docs: registrar decisiones de ordenamiento</td>
+            <td>
+                Registra en la documentación las decisiones tomadas
+                durante el trabajo con los algoritmos de ordenamiento.
+            </td>
+        </tr>
+
+        <tr>
+            <td><code>9be766f</code></td>
+            <td>docs: registrar decision DEC-05</td>
+            <td>
+                Documenta la decisión DEC-05 relacionada con el diseño
+                y las decisiones del proyecto.
+            </td>
+        </tr>
+
+        <tr>
+            <td><code>ecef0e6</code></td>
+            <td>docs: registrar decision DEC-05</td>
+            <td>
+                Registra información adicional relacionada con la decisión
+                DEC-05 dentro de la documentación del proyecto.
+            </td>
+        </tr>
+
+        <tr>
+            <td><code>1e63f51</code></td>
+            <td>fix: agregar corte temprano a burbuja</td>
+            <td>
+                Mejora el algoritmo de ordenamiento por burbuja agregando
+                un corte temprano cuando ya no es necesario continuar
+                realizando comparaciones.
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <!-- ===================================================== -->
+    <!-- 10. REEXPLICACIÓN -->
+    <!-- ===================================================== -->
+
+    <h2>10. Reexplicación final</h2>
+
+    <p>
+        La elección del algoritmo de ordenamiento influye directamente en el
+        rendimiento del programa. En las pruebas, Inserción tuvo un crecimiento
+        mucho mayor en el número de comparaciones que MergeSort. Con 100.000
+        lecturas, Inserción realizó 2.497.222.762 comparaciones, mientras que
+        MergeSort realizó 1.536.325. Esto se debe a que Inserción tiene un
+        comportamiento aproximado de O(n²), mientras que MergeSort tiene un
+        comportamiento aproximado de O(n log n). Por esto, MergeSort es más
+        adecuado para grandes cantidades de datos.
+    </p>
+
+
+    <!-- ===================================================== -->
+    <!-- 11. REFLEXIÓN -->
+    <!-- ===================================================== -->
+
+    <h2>11. Reflexión individual</h2>
+
+    <h3>1. Lo que ahora puedo hacer y antes no podía</h3>
+
+    <p>
+        Ahora puedo comparar diferentes algoritmos de ordenamiento utilizando
+        datos reales de un programa y analizar su rendimiento mediante el
+        número de comparaciones, intercambios y tiempo de ejecución.
+    </p>
+
+    <h3>2. El error o supuesto que más me enseñó</h3>
+
+    <p>
+        Lo que más me enseñó fue comprobar que un algoritmo que funciona
+        correctamente con pocos datos no necesariamente será una buena opción
+        cuando la cantidad de datos aumenta. El caso de Inserción con 100.000
+        lecturas mostró claramente esta diferencia.
+    </p>
+
+    <h3>3. Pregunta para próxima clase</h3>
+
+    <p>
+        ¿Cómo puedo determinar de manera más rápida cuál es el algoritmo más
+        conveniente dependiendo del tipo y cantidad de datos que tenga el
+        programa?
+    </p>
+
+    <h3>4. ¿Qué parte del trabajo fue realmente mía?</h3>
+
+    <p>
+        Mi aporte consistió en ejecutar y analizar los experimentos, comparar
+        los resultados de los diferentes algoritmos y relacionarlos con el
+        comportamiento del programa. También participé en la integración y
+        revisión del funcionamiento de los experimentos dentro del proyecto.
+    </p>
+
+
+    <!-- ===================================================== -->
+    <!-- CHECKLIST -->
+    <!-- ===================================================== -->
+
+    <h2>Checklist</h2>
+
+    <ul class="check">
+        <li>☑ Predicción antes de obtener los resultados.</li>
+        <li>☑ Evidencia concreta de los experimentos.</li>
+        <li>☑ Explicación del concepto en lenguaje sencillo.</li>
+        <li>☑ Duda o vacío de conocimiento identificado.</li>
+        <li>☑ Trazado de un caso paso a paso.</li>
+        <li>☑ Justificación de la decisión de diseño.</li>
+        <li>☑ Alternativa descartada y razón.</li>
+        <li>☑ Evidencia que respalda la decisión.</li>
+        <li>☐ Commits reales agregados.</li>
+        <li>☑ Pendientes para la siguiente semana.</li>
+        <li>☑ Archivo ubicado en <code>docs/bitacora.html</code>.</li>
+    </ul>
+
+
+</main>
+
+</body>
+</html>
